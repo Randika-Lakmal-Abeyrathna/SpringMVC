@@ -30,16 +30,19 @@ and open the template in the editor.
                         <th>Description</th>
                         <th>price</th>
                         <th>Image URL</th>
+                        <th>View</th>
                     </tr>
                     <tr th:each="product:${products}">
                         <td th:text="${product.id}"></td>
                         <td th:text="${product.description}"></td>
                         <td th:text="${product.price}"></td>
                         <td th:text="${product.imageUrl}"></td>
+                        <td ><a th:href="${'/product/'+product.id}">View</a></td>
                     </tr>
                 </table>
                 
             </div>
         </div>
     </body>
+    
 </html>

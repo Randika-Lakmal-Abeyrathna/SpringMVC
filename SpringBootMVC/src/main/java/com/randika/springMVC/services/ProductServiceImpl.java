@@ -73,4 +73,10 @@ public class ProductServiceImpl  implements  ProductService{
             
             
     }
+
+    @Override
+    public Product getProductById(Integer id) {
+
+        return products.get(id);
+    }
 }

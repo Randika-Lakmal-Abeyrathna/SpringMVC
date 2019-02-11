@@ -14,4 +14,7 @@ import java.util.List;
  */
 public interface ProductService {
     List<Product> listAllProducts(); 
+    
+    Product getProductById(Integer id);
+    
 }
