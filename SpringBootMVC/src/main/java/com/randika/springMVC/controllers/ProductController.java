@@ -5,12 +5,14 @@
  */
 package com.randika.springMVC.controllers;
 
+import com.randika.springMVC.domain.Product;
 import com.randika.springMVC.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -44,4 +46,16 @@ public class ProductController {
         return "product";
     }
     
+    @RequestMapping("/product/new")
+    public String newProduct(Model model){
+    
+        model.addAttribute("product", new Product());
+        return "productForm";
+    }
+
+    @RequestMapping(value = "/product", method = RequestMethod.POST)
+    public String saveOrUpdateProduct(Product product){
+        Product saveProduct = productService.saveOrUpdateProduct(product);
+        return "redirect:/product/"+saveProduct.getId();
+    }
 }

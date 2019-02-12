@@ -17,4 +17,5 @@ public interface ProductService {
     
     Product getProductById(Integer id);
     
+    Product saveOrUpdateProduct(Product product);
 }
